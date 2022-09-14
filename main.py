@@ -33,11 +33,15 @@ def main():
                 newline += ' '
             if first_line and len(words) == correct_count:
                 solved = True
+            first_line = False
             print(newline)
 
         if not solved:
             print('guesses: %s' % ', '.join(guesses))
             guess = input('Guess a word. ')
+        else:
+            print('\nYou solved it!')
+            input('Press ENTER to exit.')
 
 
 if __name__ == '__main__':
