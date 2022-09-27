@@ -5,6 +5,7 @@ def main():
     solved = False
     guesses = []
     guess = ''
+    print('Guess the title to solve the puzzle.\n')
     while not solved:
         if len(guess) > 0 and guess not in guesses:
             guesses.append(guess)
@@ -27,7 +28,8 @@ def main():
                     newline += word
                     correct_count += 1
                 else:
-                    newline += '_'.rjust(len(word), '_')
+                    if len(word) > 0:
+                        newline += '_'.rjust(len(word), '_')
                 if has_period:
                     newline += '.'
                 newline += ' '
@@ -37,8 +39,9 @@ def main():
             print(newline)
 
         if not solved:
-            print('guesses: %s' % ', '.join(guesses))
+            print('\nguesses: %s\n' % ', '.join(guesses))
             guess = input('Guess a word. ')
+            print('')
         else:
             print('\nYou solved it!')
             input('Press ENTER to exit.')
